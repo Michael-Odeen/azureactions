@@ -1,0 +1,19 @@
+name: Github actions demo
+on: push
+jobs:
+  Example-Actions-Jobs:
+    name: Exploring github actions
+    runs-on: ubunto-latest
+    steps:
+      - run: echo "triggered by ${{ gitgithub.event_name }}"
+      - run: echo "running on ${{ runner.os }} hosted by github
+      - name: Checkout repository
+        uses: actions/checkout@v4.1.4
+
+      - name: set up dot net
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.x'
+
+      - name: Display version
+        run: dotnet --version
